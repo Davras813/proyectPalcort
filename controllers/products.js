@@ -6,16 +6,21 @@ exports.productList = (req, res) => {
     }
     res.json({
         productos: data
-
     });
 };
 
 
 exports.detailProduct = (req, res) => {
+
+    let id = req.params.idproduct;
+    const token = req.headers['auth'];
+    console.log(token);
+
+    let jsonData = require('../utils/products.json')
+
+    let result = jsonData.find(data => data.id == id);
+
     res.json({
-        posts: [
-            { tittle: 'First posts' },
-            { tittle: 'Second posts' },
-        ]
+        result
     });
 };

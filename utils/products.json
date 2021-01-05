@@ -1,9 +1,49 @@
 [{
-    "id": "1",
-    "name": "mm-s.png",
-    "location": "Colombia, Bogotá, Centro Internacional",
-    "position": {
-        "lat": 4.6188242,
-        "lng": -74.0700288
+        "id": 1,
+        "name": "product1",
+        "details": {
+            "size": "Large",
+            "weigt": 100
+        }
+    },
+    {
+        "id": 2,
+        "name": "product2",
+        "details": {
+            "size": "Medium",
+            "weigt": 50
+        }
+    },
+    {
+        "id": 3,
+        "name": "product3",
+        "details": {
+            "size": "Small",
+            "weigt": 25
+        }
+    },
+    {
+        "id": 4,
+        "name": "product4",
+        "details": {
+            "size": "Large",
+            "weigt": 100
+        }
+    },
+    {
+        "id": 5,
+        "name": "product5",
+        "details": {
+            "size": "Medium",
+            "weigt": 50
+        }
+    },
+    {
+        "id": 6,
+        "name": "product6",
+        "details": {
+            "size": "Small",
+            "weigt": 25
+        }
     }
-}]
+]

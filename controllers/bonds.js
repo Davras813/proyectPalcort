@@ -88,17 +88,24 @@ exports.validateBond = (req, res) => {
     let jsonData = require('../utils/bonds.json')
 
     let result = jsonData.find(data => data.id == id);
-    let dateNow = new Date();
-    let dateSince = new Date(result.valid_since);
-    let dateEnd = new Date(result.valid_until);
-    let resolve = 'valid bond'
-    if (dateNow < dateSince) {
-        resolve = 'Not valid for: the date its most little, date today: ' + dateNow.toLocaleString() + ' <  date since ' + dateSince.toLocaleString()
-    }
-    if (dateNow > dateEnd) {
-        resolve = 'Not valid for: the date its most bigger, date today: ' + dateNow.toLocaleString() + ' >  date end ' + dateEnd.toLocaleString()
+
+    let resolve = 'Not exist bond';
+
+    if (result) {
+        let dateNow = new Date();
+        let dateSince = new Date(result.valid_since);
+        let dateEnd = new Date(result.valid_until);
+        resolve = 'valid bond'
+        if (dateNow < dateSince) {
+            resolve = 'Not valid for: the date its most little, date today: ' + dateNow.toLocaleString() + ' <  date since ' + dateSince.toLocaleString()
+        }
+        if (dateNow > dateEnd) {
+            resolve = 'Not valid for: the date its most bigger, date today: ' + dateNow.toLocaleString() + ' >  date end ' + dateEnd.toLocaleString()
+        }
+
     }
     res.json({
         resolve
     });
+
 };

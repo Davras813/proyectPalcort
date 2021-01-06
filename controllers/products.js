@@ -13,8 +13,6 @@ exports.productList = (req, res) => {
 exports.detailProduct = (req, res) => {
 
     let id = req.params.idproduct;
-    const token = req.headers['auth'];
-    console.log(token);
 
     let jsonData = require('../utils/products.json')
 

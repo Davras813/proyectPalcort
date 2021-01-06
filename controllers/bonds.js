@@ -1,7 +1,5 @@
 const fs = require('fs');
 
-const products = require('../utils/products.json');
-const { resolve } = require('path');
 
 exports.createBond = (req, res) => {
     let jsonData = require('../utils/bonds.json')
@@ -46,7 +44,6 @@ exports.createBond = (req, res) => {
 
     jsonData.push(body)
     let sendfile = JSON.stringify(jsonData);
-    console.log(sendfile, 'mirenme');
     fs.writeFile('utils/bonds.json', sendfile, err => {
         if (err) {
             console.log('Error writing file', err)

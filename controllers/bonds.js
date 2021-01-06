@@ -1,8 +1,11 @@
 const fs = require('fs');
+
+const products = require('../utils/products.json');
 const { resolve } = require('path');
 
 exports.createBond = (req, res) => {
     let jsonData = require('../utils/bonds.json')
+    let productsData = require('../utils/products.json');
     let body = req.body;
     let dateSince = new Date(body.valid_since);
     let dateEnd = new Date(body.valid_until);
@@ -23,7 +26,18 @@ exports.createBond = (req, res) => {
 
         res.json({
 
-            response: 'The id exist'
+            response: 'The id bond exist'
+        });
+
+        return
+    }
+
+    let existProduct = productsData.find(data => data.id == body.product_id);
+    if (!existProduct) {
+
+        res.json({
+
+            response: 'The id product do not exist'
         });
 
         return
